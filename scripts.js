@@ -11,7 +11,15 @@ createGameBoard()
 function createGameBoard()
 {
     // Programatically add a button with square brackets enclosing an empty space to each cell in the gameboard
-   
+    let cells = document.querySelectorAll('td');
+    for(i=0; i<cells.length; i++){
+        let cellBtn = document.createElement("button");
+        cellBtn.innerHTML = "[ ]";
+        cellBtn.className = "cellButtons"
+        document.getElementsByClassName(cells[i]).appendChild(cellBtn);
+        console.log(cells[i]);
+        document.body.appendChild(cellBtn);
+    }
 }
 
 // Programatically add 'takeCell' as an event listener to all the buttons on the board
@@ -29,7 +37,7 @@ function takeCell(event)
     */
 
     // Make sure the button is clickable only once (I didn't mention how to do that, look it up :) )
-
+    alert("Works")
     // Check if the game is over
     if (isGameOver())
     {
