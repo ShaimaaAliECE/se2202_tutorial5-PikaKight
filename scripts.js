@@ -3,7 +3,7 @@ let nextPlayer = 'X'; // takes a value of either 'X' or 'O' according to the gam
 //initialize the game
 
 // use the value stored in the nextPlayer variable to indicate who the next player is
-
+document.getElementById('next-lbl').innerHTML = nextPlayer;
 
 //This call will create the buttons needed for the gameboard.
 createGameBoard()
@@ -11,14 +11,12 @@ createGameBoard()
 function createGameBoard()
 {
     // Programatically add a button with square brackets enclosing an empty space to each cell in the gameboard
-    
-    
-    for(i=1; i<=9; i++){
-        var cellBtn = document.createElement('button');
+    let cells = document.querySelectorAll('td');
+    for(i=0; i<cells.length; i++){
+        let cellBtn = document.createElement("button");
+        cellBtn.className = "cellButtons";
         cellBtn.innerHTML = "[ ]";
-        cellBtn.className = "cellButtons"
-        document.getElementById('c' + i).appendChild(cellBtn);
-        
+        document.getElementById(cells[i].id).appendChild(cellBtn);
     }
 }
 
@@ -37,7 +35,7 @@ function takeCell(event)
     */
 
     // Make sure the button is clickable only once (I didn't mention how to do that, look it up :) )
-    alert("Works")
+    btns[i].innerHTML = nextPlayer;  
     // Check if the game is over
     if (isGameOver())
     {
