@@ -42,14 +42,15 @@ function takeCell(event)
 
     // Make sure the button is clickable only once (I didn't mention how to do that, look it up :) )
     
-    /*
-        let btnClicked = event.target.id
 
-        document.getElementById(btnClicked).innerHTML = nextPlayer;
+    let btnClicked = event.pointerId
+    console.log(btnClicked)
 
-        document.getElementById(btnClicked).disabled = true;
-    */
-   
+    document.getElementById("c" + btnClicked).innerHTML = nextPlayer;
+
+    document.getElementById("c" + btnClicked).disabled = true;
+    
+
     switch (nextPlayer){
         case "X":
             nextPlayer = "O";
@@ -71,7 +72,7 @@ function takeCell(event)
         // let the lable with the id 'game-over-lbl' display the words 'Game Over' inside <h1> element
         var header = document.createElement('h1');
         header.innerText = "Game Over";
-        document.getElementById('game-over-lbl').appendChild(Header);
+        document.getElementById('game-over-lbl').appendChild(header);
     }
 
     // I'll leave declaring the winner for your intrinsic motivation, it's not required for this assignment 
@@ -80,5 +81,15 @@ function takeCell(event)
 function isGameOver()
 {
     // This function returns true if all the buttons are disabled and false otherwise 
+    let btns = document.querySelectorAll('button');
+    for (let i=0; i<btns.length; i++)
+    {
+       if (btns[i].innerHTML == "[ ]"){
+           return false
+       } 
+    }
+
+    return true
+
 
 }
