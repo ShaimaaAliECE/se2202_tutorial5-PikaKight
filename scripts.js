@@ -41,12 +41,15 @@ function takeCell(event)
     */
 
     // Make sure the button is clickable only once (I didn't mention how to do that, look it up :) )
-    let btnClicked = event.target.id
+    
+    /*
+        let btnClicked = event.target.id
 
-    document.getElementById(btnClicked).innerHTML = nextPlayer;
+        document.getElementById(btnClicked).innerHTML = nextPlayer;
 
-    document.getElementById(btnClicked).disabled = true;
-
+        document.getElementById(btnClicked).disabled = true;
+    */
+   
     switch (nextPlayer){
         case "X":
             nextPlayer = "O";
@@ -77,5 +80,5 @@ function takeCell(event)
 function isGameOver()
 {
     // This function returns true if all the buttons are disabled and false otherwise 
-    
+
 }
