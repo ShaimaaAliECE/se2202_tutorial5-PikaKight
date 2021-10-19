@@ -19,6 +19,7 @@ function createGameBoard()
     for(i=0; i<cells.length; i++){
         let cellBtn = document.createElement("button");
         cellBtn.className = "cellButtons";
+        cellBtn.setAttribute("id", i);
         cellBtn.innerHTML = "[ ]";
         document.getElementById(cells[i].id).appendChild(cellBtn);
     }
@@ -43,12 +44,12 @@ function takeCell(event)
     // Make sure the button is clickable only once (I didn't mention how to do that, look it up :) )
     
 
-    let btnClicked = event.pointerId
+    let btnClicked = event.target.id
     console.log(btnClicked)
 
-    document.getElementById("c" + btnClicked).innerHTML = nextPlayer;
+    document.getElementById(btnClicked).innerHTML = nextPlayer;
 
-    document.getElementById("c" + btnClicked).disabled = true;
+    document.getElementById(btnClicked).disabled = true;
     
 
     switch (nextPlayer){
